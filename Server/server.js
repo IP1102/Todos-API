@@ -7,6 +7,8 @@ var {Todo} = require('./Models/todo');
 var {User} = require('./Models/user');
 
 var app = express();
+const port = process.env.PORT || 3000;
+
 app.use(bodyParser.json());
 
 app.post('/todos', (req,res) => {
@@ -46,6 +48,6 @@ app.get('/todos/:id', (req,res) => { //:id creates a variable id in the URL for 
     })
 });
 
-app.listen(3000, () => {
-    console.log('Server is up!');
+app.listen(port, () => {
+    console.log(`Server is up at ${port}`);
 });
